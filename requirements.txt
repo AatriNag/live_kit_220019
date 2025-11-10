@@ -1,0 +1,37 @@
+# python-dotenv
+# livekit-agents[google,cartesia]
+# livekit-plugins-deepgram
+# livekit-plugins-noise-cancellation
+# livekit-plugins-turn-detector
+
+
+# Core LiveKit Agents Framework
+livekit-agents>=0.8.0
+livekit>=0.11.0
+
+# LiveKit Plugins
+livekit-plugins-deepgram
+livekit-plugins-openai>=0.7.0
+livekit-plugins-cartesia>=0.2.0
+livekit-plugins-noise-cancellation>=0.1.0
+livekit-plugins-turn-detector>=0.1.0
+
+# Environment Management
+python-dotenv>=1.0.0
+
+# Async Support
+asyncio>=3.4.3
+
+# Logging (built-in but explicit for clarity)
+logging
+
+# Optional: Development and Testing Tools
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# black>=23.0.0
+# flake8>=6.0.0
+
+# Note: If you encounter compatibility issues, you can pin specific versions:
+# livekit-agents==0.8.5
+# livekit==0.11.2
+# livekit-plugins-assemblyai==0.6.2
