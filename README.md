@@ -274,7 +274,7 @@ INFO:interruption_handler: VALID INTERRUPTION | Real speech in 'en': ['wait', 's
 
 ---
 
-## 🛠️ Environment Details
+##  Environment Details
 
 ### Python Version
 - **Required:** Python 3.9+
@@ -609,4 +609,5 @@ This implementation is part of the SalesCode.ai Final Round Qualifier challenge 
 **Project Status:**  Complete - All requirements met + bonus features implemented
 
 **Last Updated:** November 2025
+
 
