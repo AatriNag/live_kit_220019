@@ -1,4 +1,4 @@
-# 🧠 LiveKit Voice Interruption Handler
+#  LiveKit Voice Interruption Handler
 
 ## Overview
 
@@ -8,7 +8,7 @@ This project implements an intelligent interruption handling system for LiveKit'
 
 ---
 
-## 🎯 What Changed
+##  What Changed
 
 ### New Modules Added
 
@@ -102,48 +102,48 @@ This module contains the `InterruptionHandler` class, which is the heart of the 
 
 ---
 
-## ✅ What Works
+##  What Works
 
 ### Core Functionality Verified
 
-1. **Filler Filtering During Agent Speech** ✓
+1. **Filler Filtering During Agent Speech** 
 
    - User says "um", "uh", "hmm" → Agent continues speaking
    - Tested with fillers
    - No false interruptions from background acknowledgments
 
-2. **Valid Interruption Detection** ✓
+2. **Valid Interruption Detection** 
 
    - User says "wait", "stop", "no" → Agent immediately pauses
    - Mixed input "um okay stop" → Correctly identified as valid interruption
    - Partial filler phrases "uh hold on" → Interrupts as expected
 
-3. **Context-Aware Behavior** ✓
+3. **Context-Aware Behavior** 
 
    - Fillers ignored ONLY when agent is speaking
    - Same fillers registered as valid speech when agent is listening
    - Proper state tracking across conversation turns
 
-4. **Multi-Language Support** ✓ **[BONUS COMPLETED]**
+4. **Multi-Language Support**  **[BONUS COMPLETED]**
 
    - English: um, uh, like, so
    - Hindi: matlab, woh, haam
    - Language auto-detection via Deepgram STT
    - Seamless language switching mid-conversation
 
-5. **Confidence Thresholding** ✓
+5. **Confidence Thresholding** 
 
    - Low-confidence transcripts (<0.6 by default) automatically ignored
    - Prevents background noise from causing interruptions
    - Configurable threshold per deployment
 
-6. **Real-Time Performance** ✓
+6. **Real-Time Performance** 
 
    - No perceptible latency added to VAD pipeline
    - Async-safe implementation with locks
    - Efficient set-based filler lookup (O(1) per word)
 
-7. **Dynamic Filler Management** ✓ **[BONUS COMPLETED]**
+7. **Dynamic Filler Management**  **[BONUS COMPLETED]**
    - `add_filler()` and `remove_filler()` methods available
    - Thread-safe modifications during runtime
    - Enables per-user customization or learning
@@ -152,17 +152,17 @@ This module contains the `InterruptionHandler` class, which is the heart of the 
 
 | Scenario              | Input          | Agent State | Expected  | Result  |
 | --------------------- | -------------- | ----------- | --------- | ------- |
-| Pure filler           | "um"           | Speaking    | Ignore    | ✅ Pass |
-| Pure filler           | "uh hmm"       | Speaking    | Ignore    | ✅ Pass |
-| Valid command         | "wait"         | Speaking    | Interrupt | ✅ Pass |
-| Mixed                 | "um okay stop" | Speaking    | Interrupt | ✅ Pass |
-| Filler when listening | "um"           | Listening   | Register  | ✅ Pass |
-| Low confidence        | "hmm" (0.4)    | Speaking    | Ignore    | ✅ Pass |
-| Multi-language        | "हाँ" (Hindi)  | Speaking    | Ignore    | ✅ Pass |
+| Pure filler           | "um"           | Speaking    | Ignore    |  Pass |
+| Pure filler           | "uh hmm"       | Speaking    | Ignore    |  Pass |
+| Valid command         | "wait"         | Speaking    | Interrupt |  Pass |
+| Mixed                 | "um okay stop" | Speaking    | Interrupt |  Pass |
+| Filler when listening | "um"           | Listening   | Register  |  Pass |
+| Low confidence        | "hmm" (0.4)    | Speaking    | Ignore    |  Pass |
+| Multi-language        | "हाँ" (Hindi)  | Speaking    | Ignore    |  Pass |
 
 ---
 
-## 🚧 Known Issues & Edge Cases
+##  Known Issues & Edge Cases
 
 1. **Overlapping Speech**
 
@@ -193,7 +193,7 @@ This module contains the `InterruptionHandler` class, which is the heart of the 
 
 ---
 
-## 🚀 Steps to Test
+##  Steps to Test
 
 ### Prerequisites
 
@@ -310,14 +310,14 @@ INFO:agent:Loaded 5 fillers for 'en'
 INFO:agent:Loaded 3 fillers for 'es'
 INFO:agent:Loaded 7 fillers for 'hi'
 INFO:agent:USER INPUT | Text: 'um uh' | Lang: en | Confidence: 0.85 | Agent Speaking: True
-INFO:interruption_handler:🔇 IGNORED INTERRUPTION | Matched fillers in 'en': ['um', 'uh']
+INFO:interruption_handler: IGNORED INTERRUPTION | Matched fillers in 'en': ['um', 'uh']
 INFO:agent:USER INPUT | Text: 'wait stop' | Lang: en | Confidence: 0.92 | Agent Speaking: True
-INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait', 'stop']
+INFO:interruption_handler: VALID INTERRUPTION | Real speech in 'en': ['wait', 'stop']
 ```
 
 ---
 
-## 🛠️ Environment Details
+##  Environment Details
 
 ### Python Version
 
@@ -348,7 +348,7 @@ INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait',
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -393,7 +393,7 @@ INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait',
 
 ---
 
-## 🧪 Technical Implementation Details
+##  Technical Implementation Details
 
 ### Key Design Decisions
 
@@ -436,7 +436,7 @@ INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait',
 
 ---
 
-## 🎓 Learning Outcomes & Understanding
+##  Learning Outcomes & Understanding
 
 ### Problem Space Understanding
 
@@ -482,27 +482,27 @@ INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait',
 
 ---
 
-## 🏆 Bonus Features Implemented
+##  Bonus Features Implemented
 
-### 1. Multi-Language Filler Detection ✓
+### 1. Multi-Language Filler Detection 
 
 - Supports English, Spanish, Hindi out-of-box
 - Easily extensible to any language via environment variables
 - Automatic language detection and switching
 
-### 2. Dynamic Runtime Updates ✓
+### 2. Dynamic Runtime Updates 
 
 - `add_filler()` and `remove_filler()` methods
 - Thread-safe modifications
 - Enables personalization and learning
 
-### 3. Comprehensive Logging ✓
+### 3. Comprehensive Logging 
 
 - Detailed logs for every decision
 - Separate markers for ignored vs. valid interruptions
 - Statistics method for debugging
 
-### 4. Confidence-Based Filtering ✓
+### 4. Confidence-Based Filtering 
 
 - Configurable confidence threshold
 - Automatically filters noisy background sounds
@@ -514,7 +514,7 @@ INFO:interruption_handler:✅ VALID INTERRUPTION | Real speech in 'en': ['wait',
 
 A LiveKit-based voice agent implementation with interrupt handling capabilities.
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### Basic Usage (English)
 
@@ -523,10 +523,10 @@ A LiveKit-based voice agent implementation with interrupt handling capabilities.
 FILLERS_EN=um,uh,like,so,hmm
 
 # User says: "um uh" (while agent speaks)
-# Result: Ignored ✓
+# Result: Ignored 
 
 # User says: "wait stop" (while agent speaks)
-# Result: Interrupts agent ✓
+# Result: Interrupts agent 
 ```
 
 ### Multi-Language Usage
@@ -540,10 +540,10 @@ FILLERS_HI=हाँ,तो,वो
 # Conversation:
 # User: "Tell me about AI" (English)
 # Agent: [speaks in English]
-# User: "um" → Ignored ✓
+# User: "um" → Ignored 
 # User: "Ahora en español"
 # Agent: [switches to Spanish]
-# User: "este" → Ignored ✓
+# User: "este" → Ignored 
 ```
 
 ### Runtime Customization (Advanced)
@@ -562,7 +562,7 @@ print(stats)
 
 ---
 
-## 🤝 Contributing & Extension
+##  Contributing & Extension
 
 ### Adding New Languages
 
@@ -597,7 +597,7 @@ async def is_filler_semantic(transcript: str) -> bool:
 
 ---
 
-## 📞 Support & Contact
+##  Support & Contact
 
 For issues or questions about this implementation:
 
@@ -606,15 +606,20 @@ For issues or questions about this implementation:
 3. Ensure Python version compatibility (3.9+)
 4. Test in the terminal
 
+Name - Aatri Nag
+Roll No. - 220019
+College - IIT Kanpur
+Email - aatrinag22@iitk.ac.in
+
 ---
 
-## 📄 License
+##  License
 
 This implementation is part of the SalesCode.ai Final Round Qualifier challenge and follows LiveKit's open-source license (Apache 2.0).
 
 ---
 
-## ✨ Acknowledgments
+##  Acknowledgments
 
 - **LiveKit Team** for the robust agents framework
 - **Deepgram** for multilingual STT with language detection
@@ -623,6 +628,7 @@ This implementation is part of the SalesCode.ai Final Round Qualifier challenge 
 
 ---
 
-**Project Status:** ✅ Complete - All requirements met + bonus features implemented
+**Project Status:**  Complete - All requirements met + bonus features implemented
 
 **Last Updated:** November 2025
+
