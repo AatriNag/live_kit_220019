@@ -546,19 +546,64 @@ FILLERS_HI=हाँ,तो,वो
 # User: "este" → Ignored 
 ```
 
-### Runtime Customization (Advanced)
+## Runtime Customization
 
-```python
-# Add a filler during runtime
-await agent.interruption_handler.add_filler("en", "basically")
+You can dynamically manage filler words during runtime through natural voice commands. Simply speak these commands during your conversation with the agent:
 
-# Remove a filler
-await agent.interruption_handler.remove_filler("en", "like")
+### Add a Filler Word
 
-# Check statistics
-stats = agent.interruption_handler.get_statistics()
-print(stats)
+To add a new filler word that should be ignored during interruptions:
 ```
+"add basically filler"
+"add like filler"
+"add you know filler"
+```
+
+### Remove a Filler Word
+
+To remove a filler word from the ignored list:
+```
+"remove basically filler"
+"remove like filler"
+"remove um filler"
+```
+
+### View Current Fillers
+
+To see the current list of filler words for your language:
+```
+"show fillers"
+"list fillers"
+```
+
+### How It Works
+
+When you say these commands:
+1. The agent detects the command pattern in your speech
+2. Updates the filler list immediately
+3. Logs the change with a confirmation message
+4. The updated list is displayed in the logs
+
+### Example Usage
+```
+User: "Hey, I keep saying 'basically' when I'm thinking"
+User: "add basically filler"
+Agent: [Logs show:  Added filler: 'basically' for 'en']
+Agent: [Logs show:  Updated fillers for 'en': ['basically', 'like', 'uh', 'um']]
+
+User: "basically... um... basically..."  
+Agent: [Ignores this as filler-only speech]
+
+User: "Can you help me with something?"
+Agent: [Responds normally - real speech detected]
+```
+
+### Notes
+
+- Commands work in any supported language (en, es, fr, etc.)
+- Changes take effect immediately for the next interruption check
+- All changes are stored in memory and will reset when the agent restarts
+- Check your logs to see confirmation of filler updates
 
 ---
 
@@ -626,4 +671,5 @@ This implementation is part of the SalesCode.ai Final Round Qualifier challenge 
 **Project Status:**  Complete - All requirements met + bonus features implemented
 
 **Last Updated:** November 2025
+
 
