@@ -651,6 +651,11 @@ For issues or questions about this implementation:
 3. Ensure Python version compatibility (3.9+)
 4. Test in the terminal
 
+
+Name - Aatri Nag
+Roll No. - 220019
+College - IIT Kanpur
+Email - aatrinag22@iitk.ac.in
 ---
 
 ##  License
@@ -671,5 +676,6 @@ This implementation is part of the SalesCode.ai Final Round Qualifier challenge 
 **Project Status:**  Complete - All requirements met + bonus features implemented
 
 **Last Updated:** November 2025
+
 
 
